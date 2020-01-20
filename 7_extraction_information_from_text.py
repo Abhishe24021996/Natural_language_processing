@@ -118,3 +118,13 @@ def punct_features(tokens, i ):
 fs = [(punct_features(tokens,i), (i in boundaries))
       for i in range(1, len(tokens)-1)
       if tokens[i] in '.?!']
+
+#recognising textual entailemnet
+def rte_features(rtepair):
+  extractor = nltk.RTEFEatureExtractor(rtepair)
+  features ={}
+  features['word-overlap'] = len(extractor.overlap('word'))
+  features['word-hyp-extra'] = len(extractor.hyp_extra('word'))
+  features['ne-overlap'] = len(extractor.overlap('ne'))
+  features['ne-hyp-extra'] = len(extractor.hyp_extra('ne'))
+  return features
