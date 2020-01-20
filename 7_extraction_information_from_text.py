@@ -128,3 +128,7 @@ def rte_features(rtepair):
   features['ne-overlap'] = len(extractor.overlap('ne'))
   features['ne-hyp-extra'] = len(extractor.hyp_extra('ne'))
   return features
+
+             
+             
+#nltk.ConfusionMatrix(gold,test)
